@@ -137,7 +137,7 @@ const char *
 conv_la_activity(uint_t request, Conv_fmt_flags_t fmt_flags,
     Conv_inv_buf_t *inv_buf)
 {
-	static const Msg	requests[LA_ACT_MAX] = {
+	static const Msg	requests[3] = {
 		MSG_LA_ACT_CONSISTENT,	/* MSG_ORIG(MSG_LA_ACT_CONSISTENT) */
 		MSG_LA_ACT_ADD,		/* MSG_ORIG(MSG_LA_ACT_ADD) */
 		MSG_LA_ACT_DELETE	/* MSG_ORIG(MSG_LA_ACT_DELETE) */
