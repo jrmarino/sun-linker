@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project (sun_linker)
+project (sun_linker C ASM)
 
 include_directories (include)
 

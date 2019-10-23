@@ -63,6 +63,9 @@ set (BLTSRC ${MSGX})
 list(TRANSFORM BLTSRC APPEND _msg.c)
 list(TRANSFORM BLTSRC PREPEND ${CMAKE_CURRENT_BINARY_DIR}/)
 
+set (ELFCAPSRC elfcap/elfcap.c)
+set (ASMSRC vernote/vernote.s)
+
 foreach (x ${MSGX})
   add_custom_command (
     OUTPUT ${x}_msg.c ${x}_msg.h
@@ -80,6 +83,13 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/common)
 
 set_source_files_properties (${COM64SRC} PROPERTIES COMPILE_FLAGS "-D_ELF64")
 
-add_library(objconv OBJECT ${COMSRC} ${COM32SRC} ${COM64SRC} ${BLTSRC})
+add_library(objconv OBJECT 
+  ${COMSRC}
+  ${COM32SRC}
+  ${COM64SRC}
+  ${BLTSRC}
+  ${ELFCAPSRC}
+  ${ASMSRC}
+)
 
 add_library (conv STATIC $<TARGET_OBJECTS:objconv>)
